@@ -1,0 +1,24 @@
+Bundle-Version: 1.0.0
+Bundle-Name: cmm-instance-default
+Bundle-Description: Contains the default configuration files and resources required for the \
+	SmartClassroom AmILab management application.
+Bundle-Vendor: org.aimas.ami
+
+Bundle-ClassPath: .
+Include-Resource: \
+    etc=etc/
+
+Consert-ApplicationId: SmartClassroom
+Consert-ContextDimension: http://pervasive.semanticweb.org/ont/2004/06/person#locatedIn
+Consert-ContextDomain: http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#EF210
+
+-buildpath:  \
+	osgi.core;version=5.0,\
+	consert-engine.cmm-resources;version=1.0,\
+	consert-engine.engine;version=1.0,\
+	consert-model;version=1.0,\
+	jena-bundle-2.7.2;version=2.7
+
+Bundle-Activator: org.aimas.ami.cmm.simulation.resources.SimulationResourceActivator
+Private-Package:  \
+	org.aimas.ami.cmm.simulation.resources

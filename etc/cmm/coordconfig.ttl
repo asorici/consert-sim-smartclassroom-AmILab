@@ -1,0 +1,525 @@
+# baseURI: http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/coordconfig
+# imports: http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/coordconf
+
+@prefix : <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/coordconfig#> .
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix bootstrap: <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#> .
+@prefix contextannotation: <http://pervasive.semanticweb.org/ont/2014/05/consert/annotation#> .
+@prefix contextcore: <http://pervasive.semanticweb.org/ont/2014/05/consert/core#> .
+@prefix coordconf: <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/coordconf#> .
+@prefix device: <http://pervasive.semanticweb.org/ont/2004/06/device#> .
+@prefix functions: <http://pervasive.semanticweb.org/ont/2014/05/consert/functions#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://pervasive.semanticweb.org/ont/2004/06/person#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smartclassroom: <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/core#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix space: <http://pervasive.semanticweb.org/ont/2004/06/space#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+coordconf:ControlPolicy
+  coordconf:hasStopAssertionCommand [
+      rdf:type coordconf:QueryAbsenceAssertionCancelation ;
+      arg:contextAssertion smartclassroom:hasNoiseLevel ;
+      arg:elapsedTimeThreshold 10 ;
+      spin:thisUnbound "true"^^xsd:boolean ;
+    ] ;
+  coordconf:hasStopAssertionCommand [
+      rdf:type coordconf:QueryAbsenceAssertionCancelation ;
+      arg:contextAssertion smartclassroom:sensesSkeletonInPosition ;
+      arg:elapsedTimeThreshold 10 ;
+      spin:thisUnbound "true"^^xsd:boolean ;
+    ] ;
+  coordconf:hasStopAssertionCommand [
+      rdf:type coordconf:QueryAbsenceDerivationCancelation ;
+      arg:contextAssertion smartclassroom:HostsAdHocDiscussion ;
+      arg:elapsedTimeThreshold 10 ;
+      spin:thisUnbound "true"^^xsd:boolean ;
+    ] ;
+  coordconf:hasStopAssertionCommand [
+      rdf:type :NonePresentAssertionCancelation ;
+      arg:elapsedTimeThreshold -40 ;
+      spin:thisUnbound "true"^^xsd:boolean ;
+    ] ;
+.
+coordconf:hasStartAssertionCommand
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The property by which CtxCoord Control Commands which activate a specific ContextAssertion are identified."^^xsd:string ;
+  rdfs:label "hasStartAssertionCommand"^^xsd:string ;
+  rdfs:subPropertyOf coordconf:hasCommandRule ;
+.
+coordconf:hasStopAssertionCommand
+  rdf:type owl:ObjectProperty ;
+  spin:nextRuleProperty coordconf:hasStartAssertionCommand ;
+  rdfs:comment "The property by which CtxCoord Control Commands which deactivate a specific ContextAssertion are identified."^^xsd:string ;
+  rdfs:label "hasStopAssertionCommand"^^xsd:string ;
+  rdfs:subPropertyOf coordconf:hasCommandRule ;
+.
+<http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/coordconfig>
+  rdf:type owl:Ontology ;
+  owl:imports <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/coordconf> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:NonePresentAssertionCancelation
+  rdf:type spin:ConstructTemplate ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object coordconf:StopAssertionCommand ;
+            sp:predicate rdf:type ;
+            sp:subject _:b34415 ;
+          ]
+          [
+            sp:object [
+                sp:varName "contextAssertion"^^xsd:string ;
+              ] ;
+            sp:predicate coordconf:forContextAssertion ;
+            sp:subject _:b34415 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Exists ;
+            sp:elements (
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object bootstrap:EF210 ;
+                        sp:predicate person:locatedIn ;
+                        sp:subject [
+                            sp:varName "p"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode [
+                      sp:varName "g"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "timeAnn"^^xsd:string ;
+                          ] ;
+                        sp:predicate contextannotation:hasTimestamp ;
+                        sp:subject [
+                            sp:varName "g"^^xsd:string ;
+                          ] ;
+                      ]
+                      [
+                        sp:object [
+                            sp:varName "timestamp"^^xsd:string ;
+                          ] ;
+                        sp:predicate contextannotation:hasStructuredValue ;
+                        sp:subject [
+                            sp:varName "timeAnn"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode <http://pervasive.semanticweb.org/ont/2004/06/person/locatedInStore> ;
+                ]
+                [
+                  rdf:type sp:Bind ;
+                  sp:expression [
+                      rdf:type functions:datetimeDelay ;
+                      sp:arg1 [
+                          rdf:type functions:now ;
+                        ] ;
+                      sp:arg2 [
+                          sp:varName "elapsedTimeThreshold"^^xsd:string ;
+                        ] ;
+                    ] ;
+                  sp:variable [
+                      sp:varName "past"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:le ;
+                      sp:arg1 [
+                          sp:varName "timestamp"^^xsd:string ;
+                        ] ;
+                      sp:arg2 [
+                          sp:varName "past"^^xsd:string ;
+                        ] ;
+                    ] ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:resultVariables (
+                    [
+                      sp:expression [
+                          rdf:type sp:Count ;
+                          sp:distinct "true"^^xsd:boolean ;
+                          sp:expression [
+                              sp:varName "person"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:varName "ct"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      rdf:type sp:NamedGraph ;
+                      sp:elements (
+                          [
+                            sp:object bootstrap:EF210 ;
+                            sp:predicate person:locatedIn ;
+                            sp:subject [
+                                sp:varName "person"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                      sp:graphNameNode [
+                          sp:varName "gPersonLoc"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:NamedGraph ;
+                      sp:elements (
+                          [
+                            sp:object [
+                                sp:varName "timeAnnLoc"^^xsd:string ;
+                              ] ;
+                            sp:predicate contextannotation:hasTimestamp ;
+                            sp:subject [
+                                sp:varName "gPersonLoc"^^xsd:string ;
+                              ] ;
+                          ]
+                          [
+                            sp:object [
+                                sp:varName "timestampLoc"^^xsd:string ;
+                              ] ;
+                            sp:predicate contextannotation:hasStructuredValue ;
+                            sp:subject [
+                                sp:varName "timeAnnLoc"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                      sp:graphNameNode <http://pervasive.semanticweb.org/ont/2004/06/person/locatedInStore> ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type functions:datetimeDelay ;
+                          sp:arg1 [
+                              rdf:type functions:now ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "elapsedTimeThreshold"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "pastLoc"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type sp:gt ;
+                          sp:arg1 [
+                              sp:varName "timestampLoc"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "pastLoc"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    sp:varName "ct"^^xsd:string ;
+                  ] ;
+                sp:arg2 0 ;
+              ] ;
+          ]
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:distinct "true"^^xsd:boolean ;
+                sp:resultVariables (
+                    [
+                      sp:varName "contextAssertion"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      sp:object coordconf:AssertionSpecificStatistic ;
+                      sp:predicate rdf:type ;
+                      sp:subject [
+                          sp:varName "stat"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      sp:object [
+                          sp:varName "contextAssertion"^^xsd:string ;
+                        ] ;
+                      sp:predicate coordconf:forContextAssertion ;
+                      sp:subject [
+                          sp:varName "stat"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      sp:object "false"^^xsd:boolean ;
+                      sp:predicate coordconf:isDerivedAssertion ;
+                      sp:subject [
+                          sp:varName "stat"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      sp:object "true"^^xsd:boolean ;
+                      sp:predicate coordconf:isEnabledAssertion ;
+                      sp:subject [
+                          sp:varName "stat"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+                              sp:varName "contextAssertion"^^xsd:string ;
+                            ] ;
+                          sp:arg2 smartclassroom:sensesBluetoothAddress ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+      spin:thisUnbound "true"^^xsd:boolean ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:elapsedTimeThreshold ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "Negative integer value specifying how far back we are still looking for an active person:locatedIn ContextAssertion."^^xsd:string ;
+    ] ;
+  spin:labelTemplate "Deactivate sending and derivation of all ContextAssertions except the presence ones, if no one is present in a smart classroom starting with {?elapsedTimeThreshold} seconds back ago."^^xsd:string ;
+  rdfs:comment "Command rule to deactivate the sending of several ContextAssertions if no people are present in a smart classroom."^^xsd:string ;
+  rdfs:label "NonePresentAssertionCancelation"^^xsd:string ;
+  rdfs:subClassOf coordconf:CommandRuleTemplate ;
+.
+:ProvisionPolicy_EF210
+  rdf:type coordconf:ControlPolicy ;
+  coordconf:enablesAssertionByDefault "false"^^xsd:boolean ;
+  coordconf:hasDefaultIntegrityConstraintResolution coordconf:PreferAccurate ;
+  coordconf:hasDefaultOntReasoningInterval 10 ;
+  coordconf:hasDefaultRunWindow 20 ;
+  coordconf:hasDefaultTTLSpec 100 ;
+  coordconf:hasDefaultUniquenessConstraintResolution coordconf:PreferNewest ;
+  coordconf:hasInferenceSchedulingType coordconf:FCFS ;
+  coordconf:hasSpecificAssertionEnabling :enablePresenceByDefault ;
+  coordconf:hasSpecificAssertionEnabling [
+      rdf:type coordconf:AssertionSpecificEnableSpec ;
+      coordconf:forContextAssertion device:hasDerivedLocation ;
+      coordconf:hasParameterValue "true"^^xsd:boolean ;
+    ] ;
+  coordconf:hasSpecificAssertionEnabling [
+      rdf:type coordconf:AssertionSpecificEnableSpec ;
+      coordconf:forContextAssertion device:hasProfiledLocation ;
+      coordconf:hasParameterValue "true"^^xsd:boolean ;
+    ] ;
+  coordconf:hasSpecificAssertionEnabling [
+      rdf:type coordconf:AssertionSpecificEnableSpec ;
+      coordconf:forContextAssertion person:locatedIn ;
+      coordconf:hasParameterValue "true"^^xsd:boolean ;
+    ] ;
+  rdfs:label "ProvisionPolicy_EF210"^^xsd:string ;
+.
+:SinglePersonAssertionCancelation
+  rdf:type spin:ConstructTemplate ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object coordconf:StopAssertionCommand ;
+            sp:predicate rdf:type ;
+            sp:subject _:b87243 ;
+          ]
+          [
+            sp:object [
+                sp:varName "contextAssertion"^^xsd:string ;
+              ] ;
+            sp:predicate coordconf:forContextAssertion ;
+            sp:subject _:b87243 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Exists ;
+            sp:elements (
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object bootstrap:EF210 ;
+                        sp:predicate person:locatedIn ;
+                        sp:subject [
+                            sp:varName "p"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode [
+                      sp:varName "g"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:resultVariables (
+                    [
+                      sp:expression [
+                          rdf:type sp:Count ;
+                          sp:distinct "true"^^xsd:boolean ;
+                          sp:expression [
+                              sp:varName "person"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:varName "ct"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      rdf:type sp:NamedGraph ;
+                      sp:elements (
+                          [
+                            sp:object bootstrap:EF210 ;
+                            sp:predicate person:locatedIn ;
+                            sp:subject [
+                                sp:varName "person"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                      sp:graphNameNode [
+                          sp:varName "gPersonLoc"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:NamedGraph ;
+                      sp:elements (
+                          [
+                            sp:object [
+                                sp:varName "validAnn"^^xsd:string ;
+                              ] ;
+                            sp:predicate contextannotation:hasValidity ;
+                            sp:subject [
+                                sp:varName "gPersonLoc"^^xsd:string ;
+                              ] ;
+                          ]
+                          [
+                            sp:object [
+                                sp:varName "validLoc"^^xsd:string ;
+                              ] ;
+                            sp:predicate contextannotation:hasStructuredValue ;
+                            sp:subject [
+                                sp:varName "validAnn"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                      sp:graphNameNode <http://pervasive.semanticweb.org/ont/2004/06/person/locatedInStore> ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type functions:datetimeDelay ;
+                          sp:arg1 [
+                              rdf:type functions:now ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "elapsedTimeThreshold"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "past"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Bind ;
+                      sp:expression [
+                          rdf:type functions:makeValidityInterval ;
+                          sp:arg1 [
+                              sp:varName "past"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "past"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:variable [
+                          sp:varName "test"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type functions:validityIntervalsInclude ;
+                          sp:arg1 [
+                              sp:varName "validLoc"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "test"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    sp:varName "ct"^^xsd:string ;
+                  ] ;
+                sp:arg2 1 ;
+              ] ;
+          ]
+        ) ;
+      spin:thisUnbound "true"^^xsd:boolean ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:contextAssertion ;
+      spl:valueType rdfs:Resource ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:elapsedTimeThreshold ;
+      spl:valueType xsd:integer ;
+    ] ;
+  spin:labelTemplate "Specified ContextAssertion {?contextAssertion} deactivated if in the EF210 smart room there is only one person beginning with {?elapsedTimeThreshold} seconds ago."^^xsd:string ;
+  rdfs:comment "Command rule used to deactivate the sending of a specified ContextAssertion if only one person (instead of several) is present in a smart classroom."^^xsd:string ;
+  rdfs:label "SinglePersonAssertionCancelation"^^xsd:string ;
+  rdfs:subClassOf coordconf:CommandRuleTemplate ;
+.
+:enablePresenceByDefault
+  rdf:type coordconf:AssertionSpecificEnableSpec ;
+  coordconf:forContextAssertion smartclassroom:sensesBluetoothAddress ;
+  coordconf:hasParameterValue "true"^^xsd:boolean ;
+  rdfs:label "enablePresenceByDefault"^^xsd:string ;
+.
+arg:assertionResource
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.

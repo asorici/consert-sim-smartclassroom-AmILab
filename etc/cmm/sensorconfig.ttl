@@ -1,0 +1,63 @@
+# baseURI: http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/sensorconfig
+# imports: http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/sensorconf
+
+@prefix : <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/sensorconfig#> .
+@prefix coordconf: <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/coordconf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://pervasive.semanticweb.org/ont/2004/06/person#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sensorconf: <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/sensorconf#> .
+@prefix smartclassroom: <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/core#> .
+@prefix space: <http://pervasive.semanticweb.org/ont/2004/06/space#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/sensorconfig>
+  rdf:type owl:Ontology ;
+  owl:imports <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/sensorconf> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:luminositySensingPolicy
+  rdf:type sensorconf:SensingPolicy ;
+  coordconf:forContextAssertion smartclassroom:sensesLuminosity ;
+  sensorconf:hasUpdateMode coordconf:time-based ;
+  sensorconf:hasUpdateRate 5 ;
+  rdfs:label "luminositySensingPolicy"^^xsd:string ;
+.
+:noiseSensingPolicy
+  rdf:type sensorconf:SensingPolicy ;
+  coordconf:forContextAssertion smartclassroom:hasNoiseLevel ;
+  sensorconf:hasUpdateMode coordconf:time-based ;
+  sensorconf:hasUpdateRate 5 ;
+  rdfs:label "noiseSensingPolicy"^^xsd:string ;
+.
+:presenceSensingPolicy
+  rdf:type sensorconf:SensingPolicy ;
+  coordconf:forContextAssertion smartclassroom:sensesBluetoothAddress ;
+  sensorconf:hasUpdateMode coordconf:time-based ;
+  sensorconf:hasUpdateRate 5 ;
+  rdfs:label "presenceSensingPolicy"^^xsd:string ;
+.
+:skeletonSensingPolicy
+  rdf:type sensorconf:SensingPolicy ;
+  coordconf:forContextAssertion smartclassroom:sensesSkeletonInPosition ;
+  sensorconf:hasUpdateMode coordconf:time-based ;
+  sensorconf:hasUpdateRate 5 ;
+  rdfs:label "skeletonSensingPolicy"^^xsd:string ;
+.
+:teachingInformPolicy
+  rdf:type sensorconf:SensingPolicy ;
+  coordconf:forContextAssertion smartclassroom:takesPlaceIn ;
+  sensorconf:hasUpdateMode coordconf:change-based ;
+  sensorconf:hasUpdateRate 0 ;
+  rdfs:label "teachingInformPolicy"^^xsd:string ;
+.
+:temperatureSensingPolicy
+  rdf:type sensorconf:SensingPolicy ;
+  coordconf:forContextAssertion smartclassroom:sensesTemperature ;
+  sensorconf:hasUpdateMode coordconf:time-based ;
+  sensorconf:hasUpdateRate 5 ;
+  rdfs:label "temperatureSensingPolicy"^^xsd:string ;
+.

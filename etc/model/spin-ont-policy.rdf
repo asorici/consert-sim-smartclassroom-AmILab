@@ -1,0 +1,75 @@
+<?xml version='1.0'?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY jena    'http://jena.hpl.hp.com/schemas/'>
+
+    <!ENTITY rdf     'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+    <!ENTITY rdfs    'http://www.w3.org/2000/01/rdf-schema#'>
+    <!ENTITY xsd     'http://www.w3.org/2001/XMLSchema#'>
+    <!ENTITY base    '&jena;2003/03/ont-manager'>
+    <!ENTITY ont     '&base;#'>
+]>
+
+<rdf:RDF
+  xmlns:rdf ="&rdf;"
+  xmlns:rdfs="&rdfs;"
+  xmlns     ="&ont;"
+  xml:base  ="&base;"
+>
+
+
+<OntologySpec>
+    <!-- local version of the OWL language ontology (in OWL) -->
+    <publicURI rdf:resource="http://www.w3.org/2002/07/owl" />
+    <!-- uncomment the following line to re-direct attempts to http get the file -->
+    <altURL    rdf:resource="file:vocabularies/owl.owl" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">owl</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <!-- local version of the RDFS vocabulary -->
+    <publicURI rdf:resource="http://www.w3.org/2000/01/rdf-schema" />
+    <!-- uncomment the following line to re-direct attempts to http get the file -->
+    <altURL    rdf:resource="file:vocabularies/rdf-schema.rdf" />
+    <language  rdf:resource="http://www.w3.org/2000/01/rdf-schema" />
+    <prefix    rdf:datatype="&xsd;string">rdfs</prefix>
+</OntologySpec>
+
+
+<!-- ###################### SPIN ontologies local mappings  ###################### -->
+<OntologySpec>
+    <publicURI rdf:resource="http://spinrdf.org/spl" />
+    <altURL    rdf:resource="file:etc/model/ontologies/SPIN/spl.spin.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">spl</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <publicURI rdf:resource="http://spinrdf.org/spin" />
+    <altURL    rdf:resource="file:etc/model/ontologies/SPIN/spin.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">spin</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <publicURI rdf:resource="http://spinrdf.org/sp" />
+    <altURL    rdf:resource="file:etc/model/ontologies/SPIN/sp.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">sp</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <publicURI rdf:resource="http://topbraid.org/spin/spinowl" />
+    <altURL    rdf:resource="file:etc/model/ontologies/SPIN/spinowl.ttl" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">spinowl</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <publicURI rdf:resource="http://topbraid.org/spin/owlrl-all" />
+    <altURL    rdf:resource="file:etc/model/ontologies/SPIN/owlrl-all.ttl" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">owlrl</prefix>
+</OntologySpec>
+
+</rdf:RDF>

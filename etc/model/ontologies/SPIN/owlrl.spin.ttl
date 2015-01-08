@@ -1,0 +1,4023 @@
+# baseURI: http://topbraid.org/spin/owlrl
+# imports: http://spinrdf.org/spin
+
+# c14n-version: 3
+@prefix list: <http://jena.hpl.hp.com/ARQ/list#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix owlrl: <http://topbraid.org/spin/owlrl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/spin/owlrl>
+  rdf:type spin:LibraryOntology ;
+  rdf:type owl:Ontology ;
+  rdfs:comment "A collection of rules specified by the OWL RL specification in SPIN format. The rules have been encoded as SPIN templates and can be attached to a root class (such as owl:Thing) to achieve OWL inferencing on ontologies that import this file. The file owlrl-all has been created as a convenient out of the box solution for cases where all OWL 2 RL rules shall be used."^^xsd:string ;
+  owl:imports <http://spinrdf.org/spin> ;
+  owl:versionInfo "0.9.8"^^xsd:string ;
+.
+owlrl:cax-adc
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b30502 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b30502 ;
+          ]
+          [
+            sp:object "Shared instance of classes from an AllDisjointClasses block" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b30502 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:AllDisjointClasses ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "members"^^xsd:string ;
+              ] ;
+            sp:predicate owl:members ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "members"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "members"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "c1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "c2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cax-adc"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cax-adc"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cax-dw
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b27145 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b27145 ;
+          ]
+          [
+            sp:object "Shared instance of disjoint classes" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b27145 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:disjointWith ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cax-dw"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cax-dw"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cax-eqc1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentClass ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cax-eqc1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cax-eqc1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cax-eqc2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentClass ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cax-eqc2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cax-eqc2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cax-sco
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cax-sco"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cax-sco"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-avf
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "v"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:allValuesFrom ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "v"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-avf"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-avf"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-com
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b88141 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b88141 ;
+          ]
+          [
+            sp:object "Resource is instance of two classes that have been declared owl:complementOf" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b88141 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:complementOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "OWL RL cls-com"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-hv1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:hasValue ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-hv1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-hv1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-hv2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:hasValue ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-hv2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-hv2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-int1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:intersectionOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type owlrl:listContainsExtraType ;
+                    sp:arg1 [
+                        sp:varName "y"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        sp:varName "x"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-int1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-int1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-int2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "ci"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:intersectionOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ci"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-int2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-int2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-maxc1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b28231 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b28231 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b28231 ;
+          ]
+          [
+            sp:object "owl:maxCardinality of 0" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b28231 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object "0"^^xsd:nonNegativeInteger ;
+            sp:predicate owl:maxCardinality ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-maxc1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-maxc1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-maxc2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object "1"^^xsd:nonNegativeInteger ;
+            sp:predicate owl:maxCardinality ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-maxc2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-maxc2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-maxqc1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b87178 ;
+          ]
+          [
+            sp:object [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b87178 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b87178 ;
+          ]
+          [
+            sp:object "Maximum qualified cardinality of 0" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b87178 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object "0"^^xsd:nonNegativeInteger ;
+            sp:predicate owl:maxQualifiedCardinality ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onClass ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-maxqc1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-maxqc1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-maxqc2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b92810 ;
+          ]
+          [
+            sp:object [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b92810 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b92810 ;
+          ]
+          [
+            sp:object "Qualified max cardinality 0" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b92810 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object "0"^^xsd:nonNegativeInteger ;
+            sp:predicate owl:maxQualifiedCardinality ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Thing ;
+            sp:predicate owl:onClass ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-maxqc2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-maxqc2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-maxqc3
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object "1"^^xsd:nonNegativeInteger ;
+            sp:predicate owl:maxQualifiedCardinality ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onClass ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-maxqc3"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-maxqc3"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-maxqc4
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object "1"^^xsd:nonNegativeInteger ;
+            sp:predicate owl:maxQualifiedCardinality ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Thing ;
+            sp:predicate owl:onClass ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-maxqc4"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-maxqc4"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-oo
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "yi"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:oneOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "yi"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-oo"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-oo"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-svf1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:someValuesFrom ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "v"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "v"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-svf1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-svf1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-svf2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:Thing ;
+            sp:predicate owl:someValuesFrom ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "v"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-svf2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-svf2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:cls-uni
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ci"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "ci"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "cls-uni"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL cls-uni"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-diff1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b19061 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b19061 ;
+          ]
+          [
+            sp:object owl:sameAs ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b19061 ;
+          ]
+          [
+            sp:object "Violates owl:differentFrom" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b19061 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:differentFrom ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-diff1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-diff1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-diff2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b10231 ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b10231 ;
+          ]
+          [
+            sp:object "Violation of owl:AllDifferent" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b10231 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:AllDifferent ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+            sp:predicate owl:members ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "y1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "y2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-diff2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-diff2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-diff3
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b93862 ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b93862 ;
+          ]
+          [
+            sp:object "Violation of owl:AllDifferent" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b93862 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:AllDifferent ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+            sp:predicate owl:distinctMembers ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "y1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "y2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-diff3"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-diff3"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-ref
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-ref"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-ref"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-rep-o
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "o2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "o2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-rep-o"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-rep-o"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-rep-p
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-rep-p"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-rep-p"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-rep-s
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "s2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-rep-s"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-rep-s"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-sym
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-sym"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-sym"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:eq-trans
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "z"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "z"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "eq-trans"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL eq-trans"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:keyViolationExists
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject spin:_arg1 ;
+          ]
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "z1"^^xsd:string ;
+                    ] ;
+                  sp:predicate [
+                      sp:varName "p"^^xsd:string ;
+                    ] ;
+                  sp:subject spin:_arg2 ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "z2"^^xsd:string ;
+                    ] ;
+                  sp:predicate [
+                      sp:varName "p"^^xsd:string ;
+                    ] ;
+                  sp:subject spin:_arg3 ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:or ;
+                    sp:arg1 [
+                        rdf:type sp:not ;
+                        sp:arg1 [
+                            rdf:type sp:bound ;
+                            sp:arg1 [
+  sp:varName "z1"^^xsd:string ;
+] ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type sp:not ;
+                        sp:arg1 [
+                            rdf:type sp:bound ;
+                            sp:arg1 [
+  sp:varName "z2"^^xsd:string ;
+] ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:ne ;
+                    sp:arg1 [
+                        sp:varName "z1"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        sp:varName "z2"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment """Checks whether there is a value of a key property that
+is different for the two instances arg2 and arg3"""^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdf:List ;
+      rdfs:comment "The list of key properties."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The first instance"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg3 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The second instance"^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "A helper function of the prp-key axiom." ;
+  rdfs:label "key violation exists"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+owlrl:listContainsExtraType
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject spin:_arg2 ;
+          ]
+          [
+            rdf:type sp:NotExists ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "object"^^xsd:string ;
+                    ] ;
+                  sp:predicate rdf:type ;
+                  sp:subject spin:_arg1 ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject that is checked."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:List ;
+      rdfs:comment "The rdf:List to walk through."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Walks a given rdf:List (?arg2) and returns true if the given subject (?arg1) does not have a list element as rdf:type. This can be used to check whether the subject has all objects from a given list, by simply negating the result with the ! operator."^^xsd:string ;
+  rdfs:label "list contains extra object"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+owlrl:prp-adp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b89441 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b89441 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b89441 ;
+          ]
+          [
+            sp:object "Violation of owl:AllDisjointProperties" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b89441 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:AllDisjointProperties ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "z"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "members"^^xsd:string ;
+              ] ;
+            sp:predicate owl:members ;
+            sp:subject [
+                sp:varName "z"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "members"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "p1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "p2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "members"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-adp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-adp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-asyp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b9003 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b9003 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b9003 ;
+          ]
+          [
+            sp:object "Asymmetric property" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b9003 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:AsymmetricProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-asyp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-asyp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-dom
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:domain ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-dom"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-dom"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-eqp1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentProperty ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-eqp1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-eqp1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-eqp2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentProperty ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-eqp2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-eqp2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-fp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:FunctionalProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "y1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "y2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-fp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-fp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-ifp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "x1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:InverseFunctionalProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "x1"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "x2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-ifp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-ifp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-inv1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:inverseOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-inv1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-inv1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-inv2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:inverseOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-inv2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-inv2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-irp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b35772 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b35772 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b35772 ;
+          ]
+          [
+            sp:object "Irreflexive property" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b35772 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:IrreflexiveProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-irp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-irp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-key
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sameAs ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "u"^^xsd:string ;
+              ] ;
+            sp:predicate owl:hasKey ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "x"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "y"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type owlrl:keyViolationExists ;
+                    sp:arg1 [
+                        sp:varName "u"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        sp:varName "x"^^xsd:string ;
+                      ] ;
+                    sp:arg3 [
+                        sp:varName "y"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-key"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-key"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-npa1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b23784 ;
+          ]
+          [
+            sp:object [
+                sp:varName "i1"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b23784 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b23784 ;
+          ]
+          [
+            sp:object "Negative Property Assertion" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b23784 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "i1"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sourceIndividual ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:assertionProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "i2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:targetIndividual ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "i2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "i1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-npa1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-npa1"^^xsd:string ;
+  rdfs:label "prp-npa1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-npa2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b40184 ;
+          ]
+          [
+            sp:object [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b40184 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b40184 ;
+          ]
+          [
+            sp:object "Negative Property Assertion" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b40184 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+            sp:predicate owl:sourceIndividual ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:assertionProperty ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "lt"^^xsd:string ;
+              ] ;
+            sp:predicate owl:targetValue ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "lt"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-npa2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-npa2"^^xsd:string ;
+  rdfs:label "prp-npa2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-pdw
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b39779 ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b39779 ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate spin:violationPath ;
+            sp:subject _:b39779 ;
+          ]
+          [
+            sp:object "Property declared disjoint with" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b39779 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:propertyDisjointWith ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-pdw"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-pdw"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-rng
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-rng"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-rng"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-spo1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-spo1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-spo1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-spo2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:propertyChainAxiom ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+            sp:predicate owlrl:propertyChainHelper ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-spo2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-spo2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-symp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:SymmetricProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-symp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-symp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:prp-trp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "z"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:TransitiveProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "z"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "prp-trp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL prp-trp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-avf1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate owl:allValuesFrom ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:allValuesFrom ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-avf1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-avf1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-avf2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:allValuesFrom ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:allValuesFrom ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-avf2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-avf2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-cls
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentClass ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Thing ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject owl:Nothing ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-cls"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-cls"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-dom1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:domain ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:domain ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-dom1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-dom1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-dom2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:domain ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:domain ;
+            sp:subject [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-dom2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-dom2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-dp
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentProperty ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:DatatypeProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-dp"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-dp"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-eqc1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentClass ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-eqc1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-eqc1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-eqc2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentClass ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-eqc2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-eqc2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-eqp1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentProperty ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-eqp1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-eqp1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-eqp2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentProperty ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-eqp2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-eqp2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-hv
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+            sp:predicate owl:hasValue ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "i"^^xsd:string ;
+              ] ;
+            sp:predicate owl:hasValue ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-hv"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-hv"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-int
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "cl"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:intersectionOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "cl"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-int"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-int"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-op
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:equivalentProperty ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object owl:ObjectProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-op"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-op"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-rng1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-rng1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-rng1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-rng2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-rng2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-rng2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-sco
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c3"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "c3"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-sco"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-sco"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-spo
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "p3"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p3"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-spo"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-spo"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-svf1
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+            sp:predicate owl:someValuesFrom ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:someValuesFrom ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "y1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-svf1"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-svf1"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-svf2
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:someValuesFrom ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "y"^^xsd:string ;
+              ] ;
+            sp:predicate owl:someValuesFrom ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "c2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "p2"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subPropertyOf ;
+            sp:subject [
+                sp:varName "p1"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-svf2"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-svf2"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owlrl:scm-uni
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "cl"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "cl"^^xsd:string ;
+              ] ;
+            sp:predicate list:member ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "scm-uni"^^xsd:string ;
+    ] ;
+  rdfs:comment "OWL RL scm-uni"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+owl:Nothing
+  spin:constraint [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object spin:ConstraintViolation ;
+            sp:predicate rdf:type ;
+            sp:subject _:b89678 ;
+          ]
+          [
+            sp:object spin:_this ;
+            sp:predicate spin:violationRoot ;
+            sp:subject _:b89678 ;
+          ]
+          [
+            sp:object "Instance of owl:Nothing" ;
+            sp:predicate rdfs:label ;
+            sp:subject _:b89678 ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+.

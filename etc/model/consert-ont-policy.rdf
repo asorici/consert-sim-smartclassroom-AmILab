@@ -1,0 +1,94 @@
+<?xml version='1.0'?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY jena    'http://jena.hpl.hp.com/schemas/'>
+
+    <!ENTITY rdf     'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+    <!ENTITY rdfs    'http://www.w3.org/2000/01/rdf-schema#'>
+    <!ENTITY xsd     'http://www.w3.org/2001/XMLSchema#'>
+    <!ENTITY base    '&jena;2003/03/ont-manager'>
+    <!ENTITY ont     '&base;#'>
+]>
+
+<rdf:RDF
+  xmlns:rdf ="&rdf;"
+  xmlns:rdfs="&rdfs;"
+  xmlns     ="&ont;"
+  xml:base  ="&base;"
+>
+
+
+<DocumentManagerPolicy>
+    <!-- Ignore importing SPIN related models. These will be loaded at the appropriate time when 
+     building indexes for Context Derivation Rules and Context Constraints -->
+    
+    <ignoreImport rdf:resource="http://spinrdf.org/spl" />
+    <ignoreImport rdf:resource="http://spinrdf.org/spin" />
+    <ignoreImport rdf:resource="http://spinrdf.org/sp" />
+    <ignoreImport rdf:resource="http://spinrdf.org/spinowl" />
+    <ignoreImport rdf:resource="http://topbraid.org/spin/owlrl-all" />
+    
+</DocumentManagerPolicy>
+
+
+<OntologySpec>
+    <!-- local version of the OWL language ontology (in OWL) -->
+    <publicURI rdf:resource="http://www.w3.org/2002/07/owl" />
+    <!-- uncomment the following line to re-direct attempts to http get the file -->
+    <altURL    rdf:resource="file:vocabularies/owl.owl" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">owl</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <!-- local version of the RDFS vocabulary -->
+    <publicURI rdf:resource="http://www.w3.org/2000/01/rdf-schema" />
+    <!-- uncomment the following line to re-direct attempts to http get the file -->
+    <altURL    rdf:resource="file:vocabularies/rdf-schema.rdf" />
+    <language  rdf:resource="http://www.w3.org/2000/01/rdf-schema" />
+    <prefix    rdf:datatype="&xsd;string">rdfs</prefix>
+</OntologySpec>
+
+<!-- ###################### CONSERT Ontology local mappings  ###################### -->
+<OntologySpec>
+    <!-- URI specification for the CONSERT Ontology core module -->
+    <publicURI rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core" />
+    <altURL    rdf:resource="file:etc/model/ontologies/ContextAssertion/core/consert-core.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">contextassertion</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <!-- URI specification for the CONSERT Ontology annotation module -->
+    <publicURI rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/annotation" />
+    <altURL    rdf:resource="file:etc/model/ontologies/ContextAssertion/core/consert-annotation.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">contextannotation</prefix>
+</OntologySpec>
+
+
+<OntologySpec>
+    <!-- URI specification for the CONSERT Ontology constraint module -->
+    <publicURI rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/constraint" />
+    <altURL    rdf:resource="file:etc/model/ontologies/ContextAssertion/core/consert-constraint.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">contextconstraint</prefix>
+</OntologySpec>
+
+<OntologySpec>
+    <!-- URI specification for the CONSERT Ontology functions module -->
+    <publicURI rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/functions" />
+    <altURL    rdf:resource="file:etc/model/ontologies/ContextAssertion/core/functions.spin.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">functions</prefix>
+</OntologySpec>
+
+
+<OntologySpec>
+    <!-- URI specification for the CONSERT Ontology internal reasoning rules module -->
+    <publicURI rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/rules" />
+    <altURL    rdf:resource="file:etc/model/ontologies/ContextAssertion/core/rules.spin.rdf" />
+    <language  rdf:resource="http://www.w3.org/2002/07/owl" />
+    <prefix    rdf:datatype="&xsd;string">rules</prefix>
+</OntologySpec>
+
+</rdf:RDF>
