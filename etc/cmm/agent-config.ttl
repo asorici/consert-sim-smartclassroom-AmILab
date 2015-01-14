@@ -16,21 +16,119 @@
   owl:imports <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/orgconf> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
-
-:SmartClassroomAppSpec
-  rdf:type orgconf:ApplicationSpec ;
-  orgconf:appDeploymentType orgconf:DecentralizedHierarchical ;
-  orgconf:appIdentificationName "SmartClassroom"^^xsd:string ;
-  orgconf:hasContextDomain :EF210_SmartClassroom ;
-  rdfs:label "SmartClassroomAppSpec"^^xsd:string ;
+:Container_EF210
+  rdf:type orgconf:AgentContainer ;
+  orgconf:containerHost "localhost"^^xsd:string ;
+  orgconf:containerPort 1099 ;
+  orgconf:hasMTPHost "localhost"^^xsd:string ;
+  orgconf:hasMTPPort 7778 ;
+  orgconf:isMainContainer "true"^^xsd:boolean ;
+  orgconf:platformName "EF210"^^xsd:string ;
+  rdfs:label "Container_EF210"^^xsd:string ;
 .
-:EF210_SmartClassroom
-  rdf:type orgconf:ContextDomain ;
-  orgconf:hasContextModel :EF210_ContextModel ;
-  orgconf:hasDomainDimension person:locatedIn ;
-  orgconf:hasDomainRangeEntity space:SpaceInAFixedStructure ;
-  orgconf:hasDomainRangeValue <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#EF210> ;
-  rdfs:label "EF210_SmartClassroom"^^xsd:string ;
+:CtxCoord_EF210
+  rdf:type orgconf:CtxCoordSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress :CtxCoord_EF210_Address ;
+  orgconf:hasControlPolicy [
+      rdf:type orgconf:AgentPolicy ;
+      orgconf:hasPolicyDocument [
+          rdf:type orgconf:ContentDocument ;
+          orgconf:documentPath "etc/cmm/coordconfig.ttl"^^xsd:string ;
+        ] ;
+    ] ;
+  rdfs:label "CtxCoord_EF210"^^xsd:string ;
+.
+:CtxCoord_EF210_Address
+  rdf:type orgconf:AgentAddress ;
+  orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+  orgconf:agentContainer :Container_EF210 ;
+  orgconf:agentName "CtxCoord_EF210"^^xsd:string ;
+  rdfs:label "CtxCoord_EF210_Address"^^xsd:string ;
+.
+:CtxQueryHandler_EF210
+  rdf:type orgconf:CtxQueryHandlerSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxQueryHandler_EF210"^^xsd:string ;
+    ] ;
+  orgconf:isPrimaryQueryHandler "true"^^xsd:boolean ;
+  rdfs:label "CtxQueryHandler_EF210"^^xsd:string ;
+.
+:CtxSensor_Kinects
+  rdf:type orgconf:CtxSensorSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxSensor_Kinects"^^xsd:string ;
+    ] ;
+  orgconf:hasSensingPolicy :skeletonSensingPolicy ;
+  rdfs:label "CtxSensor_Kinects"^^xsd:string ;
+.
+:CtxSensor_Luminosity
+  rdf:type orgconf:CtxSensorSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxSensor_Luminosity"^^xsd:string ;
+    ] ;
+  orgconf:hasSensingPolicy :luminositySensingPolicy ;
+  rdfs:label "CtxSensor_Luminosity"^^xsd:string ;
+.
+:CtxSensor_Noise
+  rdf:type orgconf:CtxSensorSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxSensor_Microphones"^^xsd:string ;
+    ] ;
+  orgconf:hasSensingPolicy :noiseSensingPolicy ;
+  rdfs:label "CtxSensor_Noise"^^xsd:string ;
+.
+:CtxSensor_Presence
+  rdf:type orgconf:CtxSensorSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxSensor_Presence"^^xsd:string ;
+    ] ;
+  orgconf:hasSensingPolicy :presenceSensingPolicy ;
+  rdfs:label "CtxSensor_Presence"^^xsd:string ;
+.
+:CtxSensor_Teaching
+  rdf:type orgconf:CtxSensorSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxSensor_Teaching"^^xsd:string ;
+    ] ;
+  orgconf:hasSensingPolicy :profiledTeachingPolicy ;
+  rdfs:label "CtxSensor_Teaching"^^xsd:string ;
+.
+:CtxSensor_Temperature
+  rdf:type orgconf:CtxSensorSpec ;
+  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
+  orgconf:hasAgentAddress [
+      rdf:type orgconf:AgentAddress ;
+      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
+      orgconf:agentContainer :Container_EF210 ;
+      orgconf:agentName "CtxSensor_Temperature"^^xsd:string ;
+    ] ;
+  orgconf:hasSensingPolicy :temperatureSensingPolicy ;
+  rdfs:label "CtxSensor_Temperature"^^xsd:string ;
 .
 :EF210_ContextModel
   rdf:type orgconf:ContextModelDefinition ;
@@ -48,18 +146,14 @@
     ] ;
   rdfs:label "EF210_ContextModel"^^xsd:string ;
 .
-
-:Container_EF210
-  rdf:type orgconf:AgentContainer ;
-  orgconf:containerHost "localhost"^^xsd:string ;
-  orgconf:containerPort 1099 ;
-  orgconf:hasMTPHost "localhost"^^xsd:string ;
-  orgconf:hasMTPPort 7778 ;
-  orgconf:isMainContainer "true"^^xsd:boolean ;
-  orgconf:platformName "EF210"^^xsd:string ;
-  rdfs:label "Container_EF210"^^xsd:string ;
+:EF210_SmartClassroom
+  rdf:type orgconf:ContextDomain ;
+  orgconf:hasContextModel :EF210_ContextModel ;
+  orgconf:hasDomainDimension person:locatedIn ;
+  orgconf:hasDomainRangeEntity space:SpaceInAFixedStructure ;
+  orgconf:hasDomainRangeValue <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#EF210> ;
+  rdfs:label "EF210_SmartClassroom"^^xsd:string ;
 .
-
 :OrgMgr_EF210
   rdf:type orgconf:OrgMgrSpec ;
   orgconf:hasAgentAddress :OrgMgr_EF210_Address ;
@@ -68,172 +162,18 @@
 .
 :OrgMgr_EF210_Address
   rdf:type orgconf:AgentAddress ;
+  orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
   orgconf:agentContainer :Container_EF210 ;
   orgconf:agentName "OrgMgr_EF210"^^xsd:string ;
-  orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
   rdfs:label "OrgMgr_EF210_Address"^^xsd:string ;
 .
-
-:CtxCoord_EF210
-  rdf:type orgconf:CtxCoordSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress :CtxCoord_EF210_Address ;
-  orgconf:hasControlPolicy [
-      rdf:type orgconf:AgentPolicy ;
-      orgconf:hasPolicyDocument [
-          rdf:type orgconf:ContentDocument ;
-          orgconf:documentPath "etc/cmm/coordconfig.ttl"^^xsd:string ;
-        ] ;
-    ] ;
-  rdfs:label "CtxCoord_EF210"^^xsd:string ;
+:SmartClassroomAppSpec
+  rdf:type orgconf:ApplicationSpec ;
+  orgconf:appDeploymentType orgconf:DecentralizedHierarchical ;
+  orgconf:appIdentificationName "SmartClassroom"^^xsd:string ;
+  orgconf:hasContextDomain :EF210_SmartClassroom ;
+  rdfs:label "SmartClassroomAppSpec"^^xsd:string ;
 .
-:CtxCoord_EF210_Address
-  rdf:type orgconf:AgentAddress ;
-  orgconf:agentContainer :Container_EF210 ;
-  orgconf:agentName "CtxCoord_EF210"^^xsd:string ;
-  orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-  rdfs:label "CtxCoord_EF210_Address"^^xsd:string ;
-.
-:CtxQueryHandler_EF210
-  rdf:type orgconf:CtxQueryHandlerSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxQueryHandler_EF210"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:isPrimaryQueryHandler "true"^^xsd:boolean ;
-  rdfs:label "CtxQueryHandler_EF210"^^xsd:string ;
-.
-:CtxSensor_Kinects
-  rdf:type orgconf:CtxSensorSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxSensor_Kinects"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:hasSensingPolicy :skeletonSensingPolicy ;
-  rdfs:label "CtxSensor_Kinects"^^xsd:string ;
-.
-:CtxSensor_Luminosity
-  rdf:type orgconf:CtxSensorSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxSensor_Luminosity"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:hasSensingPolicy :luminositySensingPolicy ;
-  rdfs:label "CtxSensor_Luminosity"^^xsd:string ;
-.
-:CtxSensor_Noise
-  rdf:type orgconf:CtxSensorSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxSensor_Microphones"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:hasSensingPolicy :noiseSensingPolicy ;
-  rdfs:label "CtxSensor_Noise"^^xsd:string ;
-.
-:CtxSensor_Presence
-  rdf:type orgconf:CtxSensorSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxSensor_Presence"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:hasSensingPolicy :presenceSensingPolicy ;
-  rdfs:label "CtxSensor_Presence"^^xsd:string ;
-.
-:CtxSensor_Teaching
-  rdf:type orgconf:CtxSensorSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxSensor_Teaching"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:hasSensingPolicy :profiledTeachingPolicy ;
-  rdfs:label "CtxSensor_Teaching"^^xsd:string ;
-.
-:CtxSensor_Temperature
-  rdf:type orgconf:CtxSensorSpec ;
-  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-  orgconf:hasAgentAddress [
-      rdf:type orgconf:AgentAddress ;
-      orgconf:agentContainer :Container_EF210 ;
-      orgconf:agentName "CtxSensor_Temperature"^^xsd:string ;
-      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-    ] ;
-  orgconf:hasSensingPolicy :temperatureSensingPolicy ;
-  rdfs:label "CtxSensor_Temperature"^^xsd:string ;
-.
-
-#:CtxUser_AirConditioning
-#  rdf:type orgconf:CtxUserSpec ;
-#  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-#  orgconf:hasAgentAddress [
-#      rdf:type orgconf:AgentAddress ;
-#      orgconf:agentContainer :Container_EF210 ;
-#      orgconf:agentName "CtxUser_AirConditioning"^^xsd:string ;
-#      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-#    ] ;
-#  rdfs:label "CtxUser_AirConditioning"^^xsd:string ;
-#.
-#:CtxUser_Projector
-#  rdf:type orgconf:CtxUserSpec ;
-#  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-#  orgconf:hasAgentAddress [
-#      rdf:type orgconf:AgentAddress ;
-#      orgconf:agentContainer :Container_EF210 ;
-#      orgconf:agentName "CtxUser_Projector"^^xsd:string ;
-#      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-#    ] ;
-#  rdfs:label "CtxUser_Projector"^^xsd:string ;
-# .
-#
-#:CtxUser_Alice
-#  rdf:type orgconf:CtxUserSpec ;
-#  orgconf:assignedOrgManager :OrgMgr_EF210_Address ;
-#  orgconf:hasAgentAddress [
-#      rdf:type orgconf:AgentAddress ;
-#      orgconf:agentContainer :Container_EF210 ;
-#      orgconf:agentName "CtxUser_Alice"^^xsd:string ;
-#      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-#    ] ;
-#  rdfs:label "CtxUser_Alice"^^xsd:string ;
-#.
-#:CtxUser_Bob
-#  rdf:type orgconf:CtxUserSpec ;
-#  orgconf:hasAgentAddress [
-#      rdf:type orgconf:AgentAddress ;
-#      orgconf:agentContainer :Container_EF210 ;
-#      orgconf:agentName "CtxUser_Bob"^^xsd:string ;
-#      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-#    ] ;
-#  rdfs:label "CtxUser_Bob"^^xsd:string ;
-#.
-#:CtxUser_Cecille
-#  rdf:type orgconf:CtxUserSpec ;
-#  orgconf:hasAgentAddress [
-#      rdf:type orgconf:AgentAddress ;
-#      orgconf:agentContainer :Container_EF210 ;
-#      orgconf:agentName "CtxUser_Cecille"^^xsd:string ;
-#      orgconf:agentAppIdentifier "SmartClassroom"^^xsd:string ;
-#    ] ;
-#  rdfs:label "CtxUser_Cecille"^^xsd:string ;
-#.
-
 :luminositySensingPolicy
   rdf:type orgconf:CtxSensorPolicy ;
   orgconf:forContextAssertion smartclassroom:sensesLuminosity ;

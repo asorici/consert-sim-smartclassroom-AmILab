@@ -23,28 +23,28 @@
   rdf:type sensorconf:SensingPolicy ;
   coordconf:forContextAssertion smartclassroom:sensesLuminosity ;
   sensorconf:hasUpdateMode coordconf:time-based ;
-  sensorconf:hasUpdateRate 5 ;
+  sensorconf:hasUpdateRate 2 ;
   rdfs:label "luminositySensingPolicy"^^xsd:string ;
 .
 :noiseSensingPolicy
   rdf:type sensorconf:SensingPolicy ;
   coordconf:forContextAssertion smartclassroom:hasNoiseLevel ;
   sensorconf:hasUpdateMode coordconf:time-based ;
-  sensorconf:hasUpdateRate 5 ;
+  sensorconf:hasUpdateRate 2 ;
   rdfs:label "noiseSensingPolicy"^^xsd:string ;
 .
 :presenceSensingPolicy
   rdf:type sensorconf:SensingPolicy ;
   coordconf:forContextAssertion smartclassroom:sensesBluetoothAddress ;
   sensorconf:hasUpdateMode coordconf:time-based ;
-  sensorconf:hasUpdateRate 5 ;
+  sensorconf:hasUpdateRate 2 ;
   rdfs:label "presenceSensingPolicy"^^xsd:string ;
 .
 :skeletonSensingPolicy
   rdf:type sensorconf:SensingPolicy ;
   coordconf:forContextAssertion smartclassroom:sensesSkeletonInPosition ;
   sensorconf:hasUpdateMode coordconf:time-based ;
-  sensorconf:hasUpdateRate 5 ;
+  sensorconf:hasUpdateRate 2 ;
   rdfs:label "skeletonSensingPolicy"^^xsd:string ;
 .
 :teachingInformPolicy
@@ -58,6 +58,6 @@
   rdf:type sensorconf:SensingPolicy ;
   coordconf:forContextAssertion smartclassroom:sensesTemperature ;
   sensorconf:hasUpdateMode coordconf:time-based ;
-  sensorconf:hasUpdateRate 5 ;
+  sensorconf:hasUpdateRate 2 ;
   rdfs:label "temperatureSensingPolicy"^^xsd:string ;
 .
