@@ -1,0 +1,25 @@
+Bundle-Name: amilab
+Bundle-Version: 1.0.0
+Bundle-Description: Contains the configuration files and resources required for the \
+    SmartClassroom AmILab management application.
+
+Bundle-Activator: org.aimas.ami.cmm.simulation.resources.SimulationResourceActivator
+Bundle-ClassPath: .
+
+Consert-ApplicationId: SmartClassroom
+Consert-ContextDimension: http://pervasive.semanticweb.org/ont/2004/06/person#locatedIn
+Consert-ContextDomain: http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#EF210
+
+Include-Resource:  \
+	etc/model/=etc/model,\
+    etc/cmm/ontologies=etc/cmm/ontologies,\
+    etc/cmm/cmm-ont-policy.rdf=etc/cmm/cmm-ont-policy.rdf,\
+    etc/cmm/agent-config.ttl=etc/cmm/agent-config.ttl,\
+    etc/cmm/coordconfig-always-active.ttl=etc/cmm/coordconfig-always-active.ttl,\
+    etc/cmm/coordconfig.ttl=etc/cmm/coordconfig.ttl,\
+    etc/cmm/sensorconfig.ttl=etc/cmm/sensorconfig.ttl,\
+    etc/cmm/domain-hierarchy-config.ttl=etc/cmm/domain-hierarchy-config.ttl,\
+    etc/cmm/engine.properties=etc/cmm/engine.properties
+    
+Private-Package:  \
+	org.aimas.ami.cmm.simulation.resources

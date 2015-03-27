@@ -1,0 +1,12 @@
+Bundle-Name: cmm-instance-default
+Bundle-Version: 1.0.0
+Bundle-Description: Contains the platform configuration files required for the \
+    SmartClassroom simulation.
+
+Consert-ApplicationId: SmartClassroom
+
+Include-Resource:  \
+	etc/model/=etc/model,\
+    etc/cmm/ontologies=etc/cmm/ontologies,\
+    etc/cmm/cmm-ont-policy.rdf=etc/cmm/cmm-ont-policy.rdf,\
+    etc/cmm/platform-config.ttl=etc/cmm/platform-config.ttl

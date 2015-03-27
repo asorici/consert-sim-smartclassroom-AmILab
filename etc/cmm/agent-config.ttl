@@ -2,6 +2,7 @@
 # imports: http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/orgconf
 
 @prefix : <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/agent-config#> .
+@prefix amilab: <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#> .
 @prefix orgconf: <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/orgconf#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix person: <http://pervasive.semanticweb.org/ont/2004/06/person#> .
@@ -15,6 +16,15 @@
   rdf:type owl:Ontology ;
   owl:imports <http://pervasive.semanticweb.org/ont/2014/06/consert/cmm/orgconf> ;
   owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:Container_CSBuilding
+  rdf:type orgconf:AgentContainer ;
+  orgconf:containerHost "localhost"^^xsd:string ;
+  orgconf:containerPort 1099 ;
+  orgconf:hasMTPHost "localhost"^^xsd:string ;
+  orgconf:hasMTPPort 7778 ;
+  orgconf:isMainContainer "true"^^xsd:boolean ;
+  orgconf:platformName "EF210"^^xsd:string ;
 .
 :Container_EF210
   rdf:type orgconf:AgentContainer ;
@@ -34,7 +44,7 @@
       rdf:type orgconf:AgentPolicy ;
       orgconf:hasPolicyDocument [
           rdf:type orgconf:ContentDocument ;
-          orgconf:documentPath "etc/cmm/coordconfig.ttl"^^xsd:string ;
+          orgconf:documentPath "etc/cmm/coordconfig-always-active.ttl"^^xsd:string ;
         ] ;
     ] ;
   rdfs:label "CtxCoord_EF210"^^xsd:string ;
@@ -150,13 +160,25 @@
   rdf:type orgconf:ContextDomain ;
   orgconf:hasContextModel :EF210_ContextModel ;
   orgconf:hasDomainDimension person:locatedIn ;
+  orgconf:hasDomainHierarchyDocument [
+      rdf:type orgconf:ContentDocument ;
+      orgconf:documentPath "etc/cmm/domain-hierarchy-config.ttl"^^xsd:string ;
+    ] ;
+  orgconf:hasDomainHierarchyProperty space:spatiallySubsumedBy ;
   orgconf:hasDomainRangeEntity space:SpaceInAFixedStructure ;
-  orgconf:hasDomainRangeValue <http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap#EF210> ;
+  orgconf:hasDomainRangeValue amilab:EF210 ;
   rdfs:label "EF210_SmartClassroom"^^xsd:string ;
+.
+:OrgMgr_CSBuilding_Address
+  rdf:type orgconf:AgentAddress ;
+  orgconf:agentAppIdentifier "CSBuilding"^^xsd:string ;
+  orgconf:agentContainer :Container_CSBuilding ;
+  orgconf:agentName "OrgMgr"^^xsd:string ;
 .
 :OrgMgr_EF210
   rdf:type orgconf:OrgMgrSpec ;
   orgconf:hasAgentAddress :OrgMgr_EF210_Address ;
+  orgconf:hasManagerParent :OrgMgr_CSBuilding_Address ;
   orgconf:hasManagerType orgconf:Node ;
   rdfs:label "OrgMgr_EF210"^^xsd:string ;
 .

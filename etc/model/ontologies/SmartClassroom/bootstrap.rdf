@@ -11,323 +11,72 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xml:base="http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/bootstrap">
   <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/core"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
-    <owl:imports rdf:resource="http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/core"/>
   </owl:Ontology>
-  <rdf:Description rdf:about="http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/core#Smartphone_Cecille">
-    <device:hasUser>
-      <per:Person rdf:ID="Cecille">
+  <smartclassroom:RoomSection rdf:ID="EF210_Section3_Right">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EF210_Section3_Right</rdfs:label>
+    <space:spatiallySubsumedBy>
+      <smartclassroom:MultiFunctionalRoom rdf:ID="EF210">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Cecille</rdfs:label>
-        <per:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Cecille</per:firstName>
-        <per:gender rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/person#Female"/>
-        <per:familyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Raymond</per:familyName>
-      </per:Person>
-    </device:hasUser>
-  </rdf:Description>
-  <smartclassroom:SchoolBuilding rdf:ID="CS_Building">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >CS_Building</rdfs:label>
-  </smartclassroom:SchoolBuilding>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_Section2_Left">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_Section2_Left</rdfs:label>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_Section2_Left">
+        >EF210</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >A multi-functional room capable of hosting both teaching classes and ad-hoc discussions.</rdfs:comment>
         <space:spatiallySubsumedBy>
-          <smartclassroom:MultiFunctionalRoom rdf:ID="EF210">
-            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >A multi-functional room capable of hosting both teaching classes and ad-hoc discussions.</rdfs:comment>
+          <smartclassroom:SchoolBuilding rdf:ID="CS_Building">
             <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >EF210</rdfs:label>
-          </smartclassroom:MultiFunctionalRoom>
+            >CS_Building</rdfs:label>
+          </smartclassroom:SchoolBuilding>
         </space:spatiallySubsumedBy>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_Section2_Left</rdfs:label>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:LuminositySensor rdf:ID="Lum_EF210_PresenterArea">
+      </smartclassroom:MultiFunctionalRoom>
+    </space:spatiallySubsumedBy>
+  </smartclassroom:RoomSection>
+  <smartclassroom:RoomSection rdf:ID="EF210_Section2_Right">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A luminosity sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_PresenterArea">
-        <space:spatiallySubsumedBy rdf:resource="#EF210"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_PresenterArea</rdfs:label>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The section at the front of the EF210 room where a teacher would stay while giving his/her lecture.</rdfs:comment>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
+    >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Lum_EF210_PresenterArea</rdfs:label>
-  </smartclassroom:LuminositySensor>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_Section1_Left">
+    >EF210_Section2_Right</rdfs:label>
+    <space:spatiallySubsumedBy rdf:resource="#EF210"/>
+  </smartclassroom:RoomSection>
+  <smartclassroom:RoomSection rdf:ID="EF210_PresenterArea">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_Section1_Left">
-        <space:spatiallySubsumedBy rdf:resource="#EF210"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_Section1_Left</rdfs:label>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
+    >The section at the front of the EF210 room where a teacher would stay while giving his/her lecture.</rdfs:comment>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_Section1_Left</rdfs:label>
-  </smartclassroom:Microphone>
-  <rdf:Description rdf:about="http://pervasive.semanticweb.org/ont/2014/07/smartclassroom/core#Smartphone_Bob">
-    <device:hasUser>
-      <per:Person rdf:ID="Bob">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Bob</rdfs:label>
-        <per:familyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Richardson</per:familyName>
-        <per:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Robert</per:firstName>
-        <per:gender rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/person#Male"/>
-      </per:Person>
-    </device:hasUser>
-  </rdf:Description>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_Section3_Left">
+    >EF210_PresenterArea</rdfs:label>
+    <space:spatiallySubsumedBy rdf:resource="#EF210"/>
+  </smartclassroom:RoomSection>
+  <smartclassroom:RoomSection rdf:ID="EF210_Section2_Left">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_Section3_Left">
-        <space:spatiallySubsumedBy rdf:resource="#EF210"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_Section3_Left</rdfs:label>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
+    >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_Section3_Left</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_Section2_Left">
+    >EF210_Section2_Left</rdfs:label>
+    <space:spatiallySubsumedBy rdf:resource="#EF210"/>
+  </smartclassroom:RoomSection>
+  <smartclassroom:RoomSection rdf:ID="EF210_Section1_Right">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_Section2_Left</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section2_Left"/>
+    >EF210_Section1_Right</rdfs:label>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-  </smartclassroom:Microphone>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_Section2_Right">
+    >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
+    <space:spatiallySubsumedBy rdf:resource="#EF210"/>
+  </smartclassroom:RoomSection>
+  <smartclassroom:RoomSection rdf:ID="EF210_Section3_Left">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_Section2_Right">
-        <space:spatiallySubsumedBy rdf:resource="#EF210"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_Section2_Right</rdfs:label>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
+    >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_Section2_Right</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_PresenterArea">
-    <device:hasProfiledLocation rdf:resource="#EF210_PresenterArea"/>
+    >EF210_Section3_Left</rdfs:label>
+    <space:spatiallySubsumedBy rdf:resource="#EF210"/>
+  </smartclassroom:RoomSection>
+  <smartclassroom:RoomSection rdf:ID="EF210_Section1_Left">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_PresenterArea</rdfs:label>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_Section3_Right">
+    >EF210_Section1_Left</rdfs:label>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_Section3_Right">
-        <space:spatiallySubsumedBy rdf:resource="#EF210"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_Section3_Right</rdfs:label>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_Section3_Right</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:LuminositySensor rdf:ID="Lum_EF210_Section3_Right">
-    <device:hasProfiledLocation rdf:resource="#EF210_Section3_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Lum_EF210_Section3_Right</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A luminosity sensor of the EF210 smart multi-functional room.</rdfs:comment>
-  </smartclassroom:LuminositySensor>
-  <smartclassroom:LuminositySensor rdf:ID="Lum_EF210_Section1_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A luminosity sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Lum_EF210_Section1_Right</rdfs:label>
-    <device:hasProfiledLocation>
-      <smartclassroom:RoomSection rdf:ID="EF210_Section1_Right">
-        <space:spatiallySubsumedBy rdf:resource="#EF210"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >EF210_Section1_Right</rdfs:label>
-      </smartclassroom:RoomSection>
-    </device:hasProfiledLocation>
-  </smartclassroom:LuminositySensor>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_Section1_Left">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_Section1_Left</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section1_Left"/>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_Section3_Left">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_Section3_Left</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section3_Left"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-  </smartclassroom:Microphone>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_Section2_Left">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section2_Left"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_Section2_Left</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_PresenterSection">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_PresenterArea"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_PresenterSection</rdfs:label>
-  </smartclassroom:Microphone>
-  <smartclassroom:Smartphone rdf:ID="Smartphone_Bob">
-    <device:hasUser rdf:resource="#Bob"/>
-    <device:bluetoothMAC rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >01:23:45:67:89:ac</device:bluetoothMAC>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Smartphone_Bob</rdfs:label>
-  </smartclassroom:Smartphone>
-  <smartclassroom:LuminositySensor rdf:ID="Lum_EF210_Section2_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A luminosity sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section2_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Lum_EF210_Section2_Right</rdfs:label>
-  </smartclassroom:LuminositySensor>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_Section3_Left">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_Section3_Left</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section3_Left"/>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_Section3_Right">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_Section3_Right</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section3_Right"/>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_Section1_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section1_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_Section1_Right</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_Section3_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section3_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_Section3_Right</rdfs:label>
-  </smartclassroom:Microphone>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_Section2_Right">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_Section2_Right</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section2_Right"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-  </smartclassroom:Microphone>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_Section1_Right">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_Section1_Right</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section1_Right"/>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_PresenterArea">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_PresenterArea"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_PresenterArea</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:Smartphone rdf:ID="Smartphone_Alice">
-    <device:hasUser>
-      <per:Person rdf:ID="Alice">
-        <per:gender rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/person#Female"/>
-        <per:familyName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Robinson</per:familyName>
-        <per:firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Alice</per:firstName>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Alice</rdfs:label>
-      </per:Person>
-    </device:hasUser>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Smartphone_Alice</rdfs:label>
-    <device:bluetoothMAC rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >01:23:45:67:89:ab</device:bluetoothMAC>
-  </smartclassroom:Smartphone>
-  <smartclassroom:Smartphone rdf:ID="Smartphone_Cecille">
-    <device:hasUser rdf:resource="#Cecille"/>
-    <device:bluetoothMAC rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >01:23:45:67:89:ad</device:bluetoothMAC>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Smartphone_Cecille</rdfs:label>
-  </smartclassroom:Smartphone>
-  <smartclassroom:Microphone rdf:ID="Mic_EF210_Section1_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A microphone for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section1_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mic_EF210_Section1_Right</rdfs:label>
-  </smartclassroom:Microphone>
-  <smartclassroom:PresenceSensor rdf:ID="PresenceSensor_EF210_Section2_Right">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PresenceSensor_EF210_Section2_Right</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section2_Right"/>
-  </smartclassroom:PresenceSensor>
-  <smartclassroom:KinectCamera rdf:ID="Kinect_EF210_Section1_Left">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A kinect camera for a section of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#EF210_Section1_Left"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kinect_EF210_Section1_Left</rdfs:label>
-  </smartclassroom:KinectCamera>
-  <smartclassroom:TemperatureSensor rdf:ID="Temp_EF210_Section1_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A temperature sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#Temp_EF210_Section1_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Temp_EF210_Section1_Right</rdfs:label>
-  </smartclassroom:TemperatureSensor>
-  <smartclassroom:TemperatureSensor rdf:ID="Temp_EF210_Section3_Right">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A temperature sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#Temp_EF210_Section3_Right"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Temp_EF210_Section3_Right</rdfs:label>
-  </smartclassroom:TemperatureSensor>
-  <smartclassroom:TemperatureSensor rdf:ID="Temp_EF210_Section3_Left">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A temperature sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <device:hasProfiledLocation rdf:resource="#Temp_EF210_Section3_Left"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Temp_EF210_Section3_Left</rdfs:label>
-  </smartclassroom:TemperatureSensor>
-  <smartclassroom:TemperatureSensor rdf:ID="Temp_EF210_Section1_Left">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A temperature sensor of the EF210 smart multi-functional room.</rdfs:comment>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Temp_EF210_Section1_Left</rdfs:label>
-    <device:hasProfiledLocation rdf:resource="#Temp_EF210_Section1_Left"/>
-  </smartclassroom:TemperatureSensor>
+    >The rest of the room is divided in 6 sections (comprising desks) with a walkway down the middle of the room. This is one of them.</rdfs:comment>
+    <space:spatiallySubsumedBy rdf:resource="#EF210"/>
+  </smartclassroom:RoomSection>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->

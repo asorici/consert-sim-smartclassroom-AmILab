@@ -136,19 +136,33 @@
     >A smartphone enabled with bluetooth.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/device#BluetoothEnabledCellphone"/>
   </owl:Class>
+  <owl:Class rdf:ID="AvailabilityStatus">
+    <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core#ContextEntity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AvailabilityStatus</rdfs:label>
+    <owl:oneOf rdf:parseType="Collection">
+      <AvailabilityStatus rdf:ID="Busy">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Busy</rdfs:label>
+      </AvailabilityStatus>
+      <AvailabilityStatus rdf:ID="Free">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Free</rdfs:label>
+      </AvailabilityStatus>
+    </owl:oneOf>
+  </owl:Class>
   <owl:Class rdf:ID="Microphone">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Microphone</rdfs:label>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Microphone to detect if speech is present in a given area.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/device#Device"/>
-  </owl:Class>
-  <owl:Class rdf:ID="TimedActivity">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >TimedActivity</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The base class for activities which have a beginning and an end.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing"/>
   </owl:Class>
   <owl:Class rdf:about="#SkeletonPosition">
     <owl:equivalentClass>
@@ -177,6 +191,13 @@
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >LuminositySensor</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/device#Device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TimedActivity">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TimedActivity</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The base class for activities which have a beginning and an end.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/time#IntervalThing"/>
   </owl:Class>
   <owl:Class rdf:about="#HostsTimedActivity">
     <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core#UnaryContextAssertion"/>
@@ -271,12 +292,21 @@
     <rdfs:range rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure"/>
     <rdfs:subPropertyOf rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core#profiledRelationAssertion"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAvailabilityStatus">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasAvailabilityStatus</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core#entityRelationAssertion"/>
+    <rdfs:domain rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/person#Person"/>
+    <rdfs:range rdf:resource="#AvailabilityStatus"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="takesPlaceIn">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >The property which specifies the physical location of a timed activity.</rdfs:comment>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >takesPlaceIn</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core#profiledRelationAssertion"/>
+    <rdfs:subPropertyOf rdf:resource="http://pervasive.semanticweb.org/ont/2014/05/consert/core#entityRelationDescription"/>
     <rdfs:range rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/space#SpaceInAFixedStructure"/>
     <rdfs:domain rdf:resource="#TimedActivity"/>
   </owl:ObjectProperty>
